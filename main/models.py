@@ -44,7 +44,7 @@ class Inmueble(models.Model):
     m2_totales = models.IntegerField(validators=[MinValueValidator(1)])
     num_estacionamientos = models.IntegerField(validators=[MinValueValidator(0)], default=0)
     num_habitaciones = models.IntegerField(validators=[MinValueValidator(0)], default=0)
-    num_baños = models.IntegerField(validators=[MinValueValidator(0)], default=0)
+    num_banos = models.IntegerField(validators=[MinValueValidator(0)], default=0)
     direccion = models.CharField(max_length=255)
     precio_mensual_arriendo = models.IntegerField(validators=[MinValueValidator(1000)])
     tipo_de_inmueble = models.CharField(max_length=20, choices=inmuebles)
