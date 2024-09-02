@@ -109,3 +109,9 @@ def eliminar_user(rut:str):
     eliminar = User.objects.get(username=rut)
     eliminar.delete()
 
+def obtener_propiedades_comunas(filtro):
+    if filtro is None:  
+        return Inmueble.objects.all().order_by('comuna') # Entrega un objeto, al poner .value() entrega un diccionario
+    # Si llegamos, hay un filtro
+    return Inmueble.objects.filter(Q(nombre__icontains=filtro) | Q(descripcion__icontains=filtro) ).order_by('comuna')
+
