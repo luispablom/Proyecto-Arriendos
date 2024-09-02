@@ -1,4 +1,4 @@
-from main.models import UserProfile, Inmueble, Comuna, Imagen, Region
+from main.models import UserProfile, Inmueble, Comuna, Region
 from django.contrib.auth.models import User
 from django.db.utils import IntegrityError
 from django.db import connection
