@@ -115,3 +115,12 @@ def obtener_propiedades_comunas(filtro):
     # Si llegamos, hay un filtro
     return Inmueble.objects.filter(Q(nombre__icontains=filtro) | Q(descripcion__icontains=filtro) ).order_by('comuna')
 
+def cambio_password(request, password:str, password_repeat:str):
+    if password != password_repeat:
+       messages.error(request, 'Las Contraseñas no coinciden')
+       return False
+    request.user.set_password(password)
+    request.user.save()
+    messages.success(request, 'Contraseña actualizada con exito') 
+    return True
+
