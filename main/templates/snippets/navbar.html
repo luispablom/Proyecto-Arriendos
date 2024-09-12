@@ -18,11 +18,14 @@
                 <a class="nav-link" href="#">Contacto</a>
             </li>
             {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <span class="nav-link">Rol: {{ user.profile.rol }}</span>  <!-- Para depuración -->
+                </li>
                 {% if user.profile.rol == 'arrendador' or user.is_staff %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Agregar Propiedad</a>
+                    <a class="nav-link" href="{% url 'add_propiedad'%}">Agregar Propiedad</a>
                 </li>
-            {% endif %}
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'profile' %}">Mis Datos</a>
                 </li>

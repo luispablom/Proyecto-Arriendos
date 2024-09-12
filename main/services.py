@@ -117,7 +117,7 @@ def obtener_propiedades_comunas(filtro):
 
 def cambio_password(request, password:str, password_repeat:str):
     if password != password_repeat:
-       messages.error(request, 'Las Contraseñas no coinciden')
+       messages.warning(request, 'Las Contraseñas no coinciden')
        return False
     request.user.set_password(password)
     request.user.save()
